@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Dose of Fun - All-in-One</title>
+    <style>
+        /* Basic Reset & Typography */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: #d90a48;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Design Showcase Section */
+        .content-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Default for larger screens */
+        }
+
+        .grid-item {
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .grid-item img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Removes extra space below image */
+            margin: 0 auto 10px auto;
+        }
+
+        /* Quiz Section */
+        #quiz-container {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        #quiz-options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #007bff;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        #quiz-options button:hover {
+            background-color: #0056b3;
+        }
+
+        #quiz-next-btn, #quiz-restart-btn, #fetch-joke-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        #quiz-next-btn:hover, #quiz-restart-btn:hover, #fetch-joke-btn:hover {
+            background-color: #218838;
+        }
+
+        #quiz-result {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            /* Color will be set by JS */
+        }
+
+
+        /* API Data Section */
+        #joke-container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            min-height: 100px; /* Give it some initial height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #joke-setup {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #joke-delivery {
+            font-style: italic;
+            color: #555;
+        }
+
+        #api-status {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #888;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        /* --- Media Queries for Responsive Design --- */
+
+        /* Small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            main {
+                padding: 10px;
+            }
+            section {
+                padding: 15px;
+            }
+            .content-grid {
+                grid-template-columns: 1fr; /* Stack items vertically on small screens */
+            }
+            #quiz-options button {
+                font-size: 14px;
+                padding: 8px;
+            }
+            #quiz-next-btn, #quiz-restart-btn, #fetch-joke-btn {
+                font-size: 16px;
+                padding: 10px;
+            }
+        }
+
+        /* Medium devices (tablets, 601px to 900px) */
+        @media only screen and (min-width: 601px) and (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+            }
+        }
+
+        /* Large devices (desktops, 901px and up) */
+        @media only screen and (min-width: 901px) {
+            .content-grid {
+                grid-template-columns: repeat(3, 1fr); /* Three columns for desktops (default) */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Daily Dose of Fun!</h1>
+        <p>Your one-stop shop for entertainment and a quick laugh.</p>
+    </header>
+
+    <main>
+
+        <section id="interactive-quiz">
+            <h2>Fun Quiz!</h2>
+            <div id="quiz-container">
+                <div id="quiz-question"></div>
+                <div id="quiz-options"></div>
+                <button id="quiz-next-btn">Next Question</button>
+                <div id="quiz-result"></div>
+                <button id="quiz-restart-btn" style="display: none;">Restart Quiz</button>
+            </div>
+        </section>
+
+        <section id="api-data-display">
+            <h2>Joke of the Day!</h2>
+            <div id="joke-container">
+                <p id="joke-setup"></p>
+                <p id="joke-delivery"></p>
+                <button id="fetch-joke-btn">Get New Joke</button>
+            </div>
+            <p id="api-status"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Daily Dose of Fun. Built with HTML, CSS, and JavaScript.</p>
+    </footer>
+
+    <script>
+        // --- Interactive Quiz Logic ---
+        const quizQuestions = [
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                answer: "Paris"
+            },
+            {
+                question: "Which planet is known as the Red Planet?",
+                options: ["Earth", "Mars", "Jupiter", "Venus"],
+                answer: "Mars"
+            },
+            {
+                question: "What is 2 + 2?",
+                options: ["3", "4", "5", "6"],
+                answer: "4"
+            },
+            {
+                question: "What is the largest ocean on Earth?",
+                options: ["Atlantic", "Indian", "Arctic", "Pacific"],
+                answer: "Pacific"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const quizQuestionEl = document.getElementById('quiz-question');
+        const quizOptionsEl = document.getElementById('quiz-options');
+        const quizNextBtn = document.getElementById('quiz-next-btn');
+        const quizResultEl = document.getElementById('quiz-result');
+        const quizRestartBtn = document.getElementById('quiz-restart-btn');
+
+        function loadQuestion() {
+            quizResultEl.textContent = ''; // Clear previous result
+            quizOptionsEl.innerHTML = ''; // Clear previous options
+            quizNextBtn.style.display = 'none'; // Hide next button initially
+            quizResultEl.style.color = ''; // Reset color
+
+            if (currentQuestionIndex < quizQuestions.length) {
+                const questionData = quizQuestions[currentQuestionIndex];
+                quizQuestionEl.textContent = questionData.question;
+
+                questionData.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    button.addEventListener('click', () => checkAnswer(option, questionData.answer));
+                    quizOptionsEl.appendChild(button);
+                });
+            } else {
+                displayQuizResult();
+            }
+        }
+
+        function checkAnswer(selectedOption, correctAnswer) {
+            Array.from(quizOptionsEl.children).forEach(button => {
+                button.disabled = true; // Disable all options after one is selected
+                if (button.textContent === correctAnswer) {
+                    button.style.backgroundColor = '#28a745'; // Green for correct
+                } else {
+                    button.style.backgroundColor = '#dc3545'; // Red for incorrect
+                }
+            });
+
+            if (selectedOption === correctAnswer) {
+                score++;
+                quizResultEl.textContent = "Correct!";
+                quizResultEl.style.color = '#28a745';
+            } else {
+                quizResultEl.textContent = `Incorrect! The answer was "${correctAnswer}".`;
+                quizResultEl.style.color = '#dc3545';
+            }
+            quizNextBtn.style.display = 'block'; // Show next button
+        }
+
+        function displayQuizResult() {
+            quizQuestionEl.textContent = `Quiz Finished! You scored ${score} out of ${quizQuestions.length}.`;
+            quizOptionsEl.innerHTML = '';
+            quizNextBtn.style.display = 'none';
+            quizResultEl.textContent = ''; // Clear result
+            quizRestartBtn.style.display = 'block';
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            quizRestartBtn.style.display = 'none';
+            loadQuestion();
+        }
+
+        quizNextBtn.addEventListener('click', () => {
+            currentQuestionIndex++;
+            loadQuestion();
+        });
+
+        quizRestartBtn.addEventListener('click', restartQuiz);
+
+        // Initialize quiz
+        loadQuestion();
+
+        // --- Fetch Data from API Logic ---
+        const jokeSetupEl = document.getElementById('joke-setup');
+        const jokeDeliveryEl = document.getElementById('joke-delivery');
+        const fetchJokeBtn = document.getElementById('fetch-joke-btn');
+        const apiStatusEl = document.getElementById('api-status');
+
+        // Using a programming joke API that provides two-part jokes
+        const JOKE_API_URL = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=twopart';
+
+        async function fetchJoke() {
+            jokeSetupEl.textContent = 'Loading joke...';
+            jokeDeliveryEl.textContent = '';
+            apiStatusEl.textContent = '';
+            fetchJokeBtn.disabled = true; // Disable button during fetch
+
+            try {
+                const response = await fetch(JOKE_API_URL);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                if (data.type === 'twopart') {
+                    jokeSetupEl.textContent = data.setup;
+                    jokeDeliveryEl.textContent = data.delivery;
+                    apiStatusEl.textContent = 'Joke loaded successfully!';
+                    apiStatusEl.style.color = '#28a745';
+                } else if (data.type === 'single') {
+                    jokeSetupEl.textContent = data.joke;
+                    jokeDeliveryEl.textContent = ''; // Ensure delivery is empty for single jokes
+                    apiStatusEl.textContent = 'Single-part joke loaded!';
+                    apiStatusEl.style.color = '#28a745';
+                } else {
+                    // Fallback for unexpected data structure
+                    jokeSetupEl.textContent = 'Unexpected joke format.';
+                    jokeDeliveryEl.textContent = '';
+                    apiStatusEl.textContent = 'Could not parse joke data.';
+                    apiStatusEl.style.color = '#dc3545';
+                }
+
+            } catch (error) {
+                console.error('Error fetching joke:', error);
+                jokeSetupEl.textContent = 'Failed to load joke.';
+                jokeDeliveryEl.textContent = 'Please try again later.';
+                apiStatusEl.textContent = `Error: ${error.message}`;
+                apiStatusEl.style.color = '#dc3545';
+            } finally {
+                fetchJokeBtn.disabled = false; // Re-enable button
+            }
+        }
+
+        fetchJokeBtn.addEventListener('click', fetchJoke);
+
+        // Fetch initial joke on page load
+        fetchJoke();
+    </script>
+</body>
+</html>
