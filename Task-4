@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #2163e7; /* Light gray background */
+            color: #374151; /* Dark gray text */
+            background-color: aqua;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1cd6c1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #9ca3af;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+        .section-padding {
+            padding-top: 6rem; /* Space from fixed header */
+            padding-bottom: 4rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Fixed Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 p-4">
+        <nav class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4 md:mb-0">My Portfolio</h1>
+            <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lg">
+                <li><a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 ease-in-out">About</a></li>
+                <li><a href="#projects" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 ease-in-out">Projects</a></li>
+                <li><a href="#todo" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 ease-in-out">To-Do List</a></li>
+                <li><a href="#products" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 ease-in-out">Products</a></li>
+                <li><a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 ease-in-out">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow mt-24"> <!-- Margin top to offset fixed header -->
+
+        <!-- About Section -->
+        <section id="about" class="section-padding bg-gradient-to-r from-blue-50 to-indigo-50 min-h-screen flex items-center justify-center">
+            <div class="container mx-auto px-6 py-12 bg-white shadow-xl rounded-xl p-8 max-w-4xl text-center md:text-left transform transition duration-500 hover:scale-105">
+                <h2 class="text-5xl font-extrabold text-blue-700 mb-8 leading-tight animate-fade-in-down">Hello, I'm <span class="text-green-600">Phani Durga Kumar Illa</span></h2>
+                <p class="text-xl text-gray-700 leading-relaxed mb-6">
+                    A passionate web developer with a strong foundation in front-end technologies and a keen eye for user experience. I thrive on creating dynamic, responsive, and visually appealing web applications.
+                </p>
+                <p class="text-xl text-gray-700 leading-relaxed mb-6">
+                    My expertise includes modern JavaScript frameworks, responsive design principles, and building scalable and maintainable codebases. I'm always eager to learn new technologies and solve challenging problems.
+                </p>
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    Let's build something amazing together!
+                </p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-padding bg-gray-100 min-h-screen flex items-center justify-center">
+            <div class="container mx-auto px-6 py-12">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2">
+                        <img src="https://placehold.co/400x250/A78BFA/FFFFFF?text=Project+1" alt="Project 1" class="rounded-lg mb-4 w-full h-auto object-cover">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">E-commerce Dashboard</h3>
+                        <p class="text-gray-700 text-base mb-4 flex-grow">A sleek dashboard for managing sales, inventory, and customer data, built with React and Redux.</p>
+                        <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition duration-300 ease-in-out shadow-md">View Project</a>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2">
+                        <img src="https://placehold.co/400x250/60A5FA/FFFFFF?text=Project+2" alt="Project 2" class="rounded-lg mb-4 w-full h-auto object-cover">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Recipe Finder App</h3>
+                        <p class="text-gray-700 text-base mb-4 flex-grow">An application that allows users to search for recipes, save favorites, and create meal plans.</p>
+                        <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition duration-300 ease-in-out shadow-md">View Project</a>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2">
+                        <img src="https://placehold.co/400x250/34D399/FFFFFF?text=Project+3" alt="Project 3" class="rounded-lg mb-4 w-full h-auto object-cover">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Real-time Chat Application</h3>
+                        <p class="text-gray-700 text-base mb-4 flex-grow">A real-time messaging platform using WebSockets for instant communication.</p>
+                        <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition duration-300 ease-in-out shadow-md">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- To-Do List Section -->
+        <section id="todo" class="section-padding bg-gradient-to-r from-purple-50 to-pink-50 min-h-screen flex flex-col items-center justify-center py-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-purple-800 mb-12">My To-Do List</h2>
+                <div class="bg-white rounded-xl shadow-2xl p-8 max-w-2xl mx-auto w-full transform transition duration-500 hover:scale-100">
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <input type="text" id="todo-input" placeholder="Add a new task..."
+                               class="flex-grow p-4 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-lg">
+                        <button id="add-todo-btn"
+                                class="bg-purple-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition duration-300 ease-in-out shadow-lg">
+                            Add Task
+                        </button>
+                    </div>
+                    <ul id="todo-list" class="space-y-4">
+                        <!-- To-Do items will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Listing Page Section -->
+        <section id="products" class="section-padding bg-gray-100 min-h-screen flex flex-col py-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Our Products</h2>
+
+                <!-- Filters and Sorting Controls -->
+                <div class="bg-white rounded-xl shadow-md p-6 mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
+                    <!-- Category Filter -->
+                    <div class="flex flex-col w-full md:w-auto">
+                        <label for="category-filter" class="text-gray-700 font-semibold mb-2">Filter by Category:</label>
+                        <select id="category-filter" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full">
+                            <option value="all">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="books">Books</option>
+                            <option value="home">Home Goods</option>
+                            <option value="clothing">Clothing</option>
+                        </select>
+                    </div>
+
+                    <!-- Price Range Filter (simple version for now) -->
+                    <div class="flex flex-col w-full md:w-auto">
+                        <label for="price-range-filter" class="text-gray-700 font-semibold mb-2">Max Price:</label>
+                        <input type="range" id="price-range-filter" min="0" max="1000" value="1000" class="w-full md:w-48">
+                        <span id="price-value" class="text-center mt-1 text-gray-600 font-medium">$1000</span>
+                    </div>
+
+                    <!-- Sort By -->
+                    <div class="flex flex-col w-full md:w-auto">
+                        <label for="sort-by" class="text-gray-700 font-semibold mb-2">Sort By:</label>
+                        <select id="sort-by" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full">
+                            <option value="default">Default</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="rating-desc">Rating: High to Low</option>
+                            <option value="rating-asc">Rating: Low to High</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Product Listing Grid -->
+                <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Product cards will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding bg-gradient-to-r from-emerald-50 to-teal-50 min-h-screen flex items-center justify-center py-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-emerald-800 mb-12">Get in Touch</h2>
+                <div class="bg-white rounded-xl shadow-2xl p-8 max-w-xl mx-auto w-full transform transition duration-500 hover:scale-100">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-lg font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name"
+                                   class="block w-full p-3 border-2 border-emerald-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 text-lg"
+                                   placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-lg font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email"
+                                   class="block w-full p-3 border-2 border-emerald-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 text-lg"
+                                   placeholder="your.email@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-lg font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5"
+                                      class="block w-full p-3 border-2 border-emerald-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 text-lg"
+                                      placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit"
+                                class="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg text-xl font-semibold hover:bg-emerald-700 transition duration-300 ease-in-out shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="text-center mt-12 text-gray-600">
+                    <p class="text-lg">You can also find me on:</p>
+                    <div class="flex justify-center space-x-6 mt-4">
+                        <a href="#" class="text-emerald-700 hover:text-emerald-900 text-3xl transition duration-300 ease-in-out">
+                            <i class="fab fa-linkedin"></i> <!-- Placeholder for LinkedIn icon -->
+                            <img src="https://placehold.co/32x32/14B8A6/FFFFFF?text=LI" alt="LinkedIn" class="inline-block rounded">
+                        </a>
+                        <a href="#" class="text-emerald-700 hover:text-emerald-900 text-3xl transition duration-300 ease-in-out">
+                            <i class="fab fa-github"></i> <!-- Placeholder for GitHub icon -->
+                            <img src="https://placehold.co/32x32/14B8A6/FFFFFF?text=GH" alt="GitHub" class="inline-block rounded">
+                        </a>
+                        <a href="#" class="text-emerald-700 hover:text-emerald-900 text-3xl transition duration-300 ease-in-out">
+                            <i class="fab fa-twitter"></i> <!-- Placeholder for Twitter icon -->
+                            <img src="https://placehold.co/32x32/14B8A6/FFFFFF?text=TW" alt="Twitter" class="inline-block rounded">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-6 text-center mt-12 rounded-t-xl">
+        <p>&copy; 2025 Phani Illa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // =====================================
+        // To-Do List Application Logic
+        // =====================================
+        const todoInput = document.getElementById('todo-input');
+        const addTodoBtn = document.getElementById('add-todo-btn');
+        const todoList = document.getElementById('todo-list');
+
+        // Load tasks from Local Storage
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem('todos')) || [];
+            tasks.forEach(task => addTaskToDOM(task.text, task.completed));
+        }
+
+        // Save tasks to Local Storage
+        function saveTasks() {
+            const tasks = [];
+            todoList.querySelectorAll('li').forEach(li => {
+                tasks.push({
+                    text: li.querySelector('span').textContent,
+                    completed: li.classList.contains('line-through')
+                });
+            });
+            localStorage.setItem('todos', JSON.stringify(tasks));
+        }
+
+        // Add task to DOM
+        function addTaskToDOM(taskText, completed = false) {
+            if (!taskText) return; // Prevent adding empty tasks
+
+            const li = document.createElement('li');
+            li.classList.add('flex', 'items-center', 'justify-between', 'p-4', 'bg-gray-50', 'rounded-lg', 'shadow-sm', 'border', 'border-gray-200');
+
+            // Task text span
+            const taskSpan = document.createElement('span');
+            taskSpan.textContent = taskText;
+            taskSpan.classList.add('text-lg', 'text-gray-800', 'flex-grow');
+            if (completed) {
+                taskSpan.classList.add('line-through', 'text-gray-500');
+            }
+
+            // Buttons container
+            const buttonContainer = document.createElement('div');
+            buttonContainer.classList.add('flex', 'space-x-2', 'ml-4');
+
+            // Complete button
+            const completeBtn = document.createElement('button');
+            completeBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 hover:text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            `;
+            completeBtn.title = 'Mark as Complete';
+            completeBtn.classList.add('p-2', 'rounded-full', 'hover:bg-green-100', 'transition', 'duration-200', 'ease-in-out');
+            completeBtn.addEventListener('click', () => {
+                taskSpan.classList.toggle('line-through');
+                taskSpan.classList.toggle('text-gray-500');
+                saveTasks();
+            });
+
+            // Delete button
+            const deleteBtn = document.createElement('button');
+            deleteBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 hover:text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+            `;
+            deleteBtn.title = 'Delete Task';
+            deleteBtn.classList.add('p-2', 'rounded-full', 'hover:bg-red-100', 'transition', 'duration-200', 'ease-in-out');
+            deleteBtn.addEventListener('click', () => {
+                li.remove();
+                saveTasks();
+            });
+
+            buttonContainer.appendChild(completeBtn);
+            buttonContainer.appendChild(deleteBtn);
+
+            li.appendChild(taskSpan);
+            li.appendChild(buttonContainer);
+            todoList.appendChild(li);
+        }
+
+        // Event listener for Add Task button
+        addTodoBtn.addEventListener('click', () => {
+            const taskText = todoInput.value.trim();
+            if (taskText) {
+                addTaskToDOM(taskText);
+                saveTasks();
+                todoInput.value = ''; // Clear input
+            }
+        });
+
+        // Allow adding task with Enter key
+        todoInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addTodoBtn.click();
+            }
+        });
+
+        // Load tasks when the page loads
+        document.addEventListener('DOMContentLoaded', loadTasks);
+
+
+        // =====================================
+        // Product Listing Page Logic
+        // =====================================
+        const productsData = [
+            { id: 1, name: 'Wireless Headphones', category: 'electronics', price: 120, rating: 4.5, image: 'hp.jpg' },
+            { id: 2, name: 'The Art of Programming', category: 'books', price: 45, rating: 4.8, image: 'book.jpg' },
+            { id: 3, name: 'Smart LED TV', category: 'electronics', price: 750, rating: 4.2, image: 'tv.jpg' },
+            { id: 4, name: 'Ergonomic Office Chair', category: 'home', price: 280, rating: 4.7, image: 'chair.jpg' },
+            { id: 5, name: 'JavaScript Mastery Guide', category: 'books', price: 30, rating: 4.6, image: 'java.jpg' },
+            { id: 6, name: 'Bluetooth Speaker', category: 'electronics', price: 60, rating: 4.1, image: 'bt.webp' },
+            { id: 7, name: 'Cozy Throw Blanket', category: 'home', price: 25, rating: 4.3, image: 'blak.jpg' },
+            { id: 8, name: 'Winter Jacket', category: 'clothing', price: 150, rating: 4.0, image: 'jack.jpg' },
+            { id: 9, name: 'Coffee Maker', category: 'home', price: 90, rating: 4.4, image: 'cm.jpg' },
+            { id: 10, name: 'Programming in Python', category: 'books', price: 50, rating: 4.9, image: 'py1.jpg' },
+            { id: 11, name: 'Gaming Mouse', category: 'electronics', price: 70, rating: 4.6, image: 'mo.jpg' },
+            { id: 12, name: 'Denim Jeans', category: 'clothing', price: 55, rating: 3.9, image: 'je.jpg' }
+        ];
+
+        const productListDiv = document.getElementById('product-list');
+        const categoryFilter = document.getElementById('category-filter');
+        const priceRangeFilter = document.getElementById('price-range-filter');
+        const priceValueSpan = document.getElementById('price-value');
+        const sortBy = document.getElementById('sort-by');
+
+        // Function to render products
+        function renderProducts(products) {
+            productListDiv.innerHTML = ''; // Clear previous products
+            if (products.length === 0) {
+                productListDiv.innerHTML = '<p class="col-span-full text-center text-gray-600 text-xl">No products found matching your criteria.</p>';
+                return;
+            }
+
+            products.forEach(product => {
+                const productCard = `
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2">
+                        <img src="${product.image}" alt="${product.name}" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">${product.name}</h3>
+                        <p class="text-gray-700 text-base mb-2">Category: <span class="font-medium capitalize">${product.category}</span></p>
+                        <p class="text-gray-900 text-lg font-bold mb-2">$${product.price.toFixed(2)}</p>
+                        <div class="flex items-center mb-4">
+                            ${generateStarRating(product.rating)}
+                            <span class="ml-2 text-gray-600 text-sm">(${product.rating})</span>
+                        </div>
+                        <button class="bg-blue-600 text-white px-5 py-2 rounded-full text-md font-medium hover:bg-blue-700 transition duration-300 ease-in-out shadow-md">Add to Cart</button>
+                    </div>
+                `;
+                productListDiv.insertAdjacentHTML('beforeend', productCard);
+            });
+        }
+
+        // Helper function to generate star rating icons
+        function generateStarRating(rating) {
+            const fullStar = `<svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.929 8.72c-.783-.57-.381-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"></path></svg>`;
+            const halfStar = `<svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.175 0L5.5 15.118c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.929 8.72c-.783-.57-.381-1.81.588-1.81h3.462a1 1 0 00.95-.69L9.049 2.927zM10 17.5V2.927A7.962 7.962 0 0112 10a7.962 7.962 0 01-2 7.5z"></path></svg>`;
+            const emptyStar = `<svg class="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.929 8.72c-.783-.57-.381-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"></path></svg>`;
+
+            let starsHtml = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+            for (let i = 0; i < fullStars; i++) starsHtml += fullStar;
+            if (hasHalfStar) starsHtml += halfStar;
+            for (let i = 0; i < emptyStars; i++) starsHtml += emptyStar;
+
+            return starsHtml;
+        }
+
+        // Function to filter and sort products
+        function filterAndSortProducts() {
+            let filtered = [...productsData];
+
+            // 1. Filter by Category
+            const selectedCategory = categoryFilter.value;
+            if (selectedCategory !== 'all') {
+                filtered = filtered.filter(product => product.category === selectedCategory);
+            }
+
+            // 2. Filter by Price Range
+            const maxPrice = parseFloat(priceRangeFilter.value);
+            priceValueSpan.textContent = `$${maxPrice}`; // Update displayed price
+            filtered = filtered.filter(product => product.price <= maxPrice);
+
+
+            // 3. Sort
+            const sortOption = sortBy.value;
+            switch (sortOption) {
+                case 'price-asc':
+                    filtered.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    filtered.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating-desc':
+                    filtered.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'rating-asc':
+                    filtered.sort((a, b) => a.rating - b.rating);
+                    break;
+                case 'default':
+                default:
+                    // Keep original order or sort by ID
+                    filtered.sort((a, b) => a.id - b.id);
+                    break;
+            }
+
+            renderProducts(filtered);
+        }
+
+        // Event listeners for filters and sorting
+        categoryFilter.addEventListener('change', filterAndSortProducts);
+        priceRangeFilter.addEventListener('input', filterAndSortProducts); // Use 'input' for real-time update
+        sortBy.addEventListener('change', filterAndSortProducts);
+
+        // Initial render of products when the page loads
+        document.addEventListener('DOMContentLoaded', filterAndSortProducts);
+    </script>
+</body>
+</html>
